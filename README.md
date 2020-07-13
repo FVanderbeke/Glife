@@ -219,7 +219,6 @@ Available actions:
 	- reset: resets the game's universe
 	- display_on: to show the universe generation evolution
 	- display_off: to stop the display of the universe generation evolution
-Action: 
 ```
 You will have to type the action to perform:
 * `shutdown` : will shutdown everything.
