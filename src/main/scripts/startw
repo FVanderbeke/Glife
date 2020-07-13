@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Test if application home is defined
+if [ -z $GLIFE_HOME ] ; then
+    echo "No Game of Life home defined on your system."
+    echo "Please define GLIFE_HOME environment variable pointing on the installation folder."
+    exit
+fi
+
+if [ ! -d $GLIFE_HOME ] ; then
+    echo "No Game of Life home is not installed in $GLIFE_HOME."
+    echo "Please check installation folder or correct configured GLIFE_HOME value."
+    exit
+fi
+
+export CLASSPATH="$GLIFE_HOME/lib/*:$GLIFE_HOME/*"
+
+echo "Starting game of life (basic mode with UI)"
+
+java -Duser.dir=$GLIFE_HOME -cp $CLASSPATH io.vanderbeke.glife.Glife -out=UX $@
